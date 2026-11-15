@@ -1,0 +1,5 @@
+[functions.create-qr]
+verify_jwt = true
+
+[functions.submit-attendance]
+verify_jwt = false

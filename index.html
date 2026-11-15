@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin Absensi QR Dinamis</title><link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+<header><div class="wrap"><h1>Absensi QR Dinamis</h1><p>Dashboard sekretaris</p></div></header>
+<main class="wrap">
+  <section id="loginPanel" class="panel">
+    <h2>Masuk sekretaris</h2>
+    <label>Email<input id="email" type="email" autocomplete="username" placeholder="email@contoh.com"></label>
+    <label>Password<input id="password" type="password" autocomplete="current-password"></label>
+    <button id="loginBtn">Masuk</button><p id="loginMsg" class="muted"></p>
+  </section>
+  <section id="adminPanel" hidden>
+    <div class="toolbar"><div><h2>Dashboard</h2><p id="adminEmail" class="muted"></p></div><button id="logoutBtn" class="secondary">Keluar</button></div>
+    <section class="panel">
+      <h3>Sesi absensi</h3>
+      <label>Nama kegiatan<input id="sessionName" placeholder="Contoh: Rapat Pengurus"></label>
+      <button id="startBtn">Buat sesi & tampilkan QR</button>
+      <p id="sessionMsg" class="muted"></p>
+      <div id="qrArea" hidden class="qr-area">
+        <div id="qrcode"></div><h2 id="countdown">10</h2>
+        <p class="muted">QR diperbarui otomatis setiap 10 detik. Token lama akan kedaluwarsa.</p>
+        <button id="closeBtn" class="danger">Akhiri sesi</button>
+      </div>
+    </section>
+    <section class="panel">
+      <div class="toolbar"><h3>Daftar kehadiran</h3><button id="refreshBtn" class="secondary">Muat ulang</button></div>
+      <p id="total" class="muted">0 peserta hadir</p>
+      <div class="table-wrap"><table><thead><tr><th>No.</th><th>Nama</th><th>Nomor identitas</th><th>Waktu</th></tr></thead><tbody id="attendanceRows"><tr><td colspan="4">Belum ada data.</td></tr></tbody></table></div>
+      <button id="exportBtn" class="secondary">Unduh CSV (Excel)</button>
+    </section>
+  </section>
+</main>
+<footer class="wrap muted">Simpan URL website ini sebagai halaman admin. Jangan bagikan akun sekretaris.</footer>
+<script src="js/config.js"></script><script src="js/admin.js"></script>
+</body></html>

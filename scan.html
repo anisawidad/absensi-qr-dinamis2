@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="id">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Form Absensi</title><link rel="stylesheet" href="assets/style.css">
+</head>
+<body><header><div class="wrap"><h1>Form Absensi</h1><p>Masukkan identitas untuk mencatat kehadiran</p></div></header>
+<main class="wrap"><section class="panel">
+  <div id="formArea">
+    <label>Nama lengkap<input id="name" autocomplete="name" maxlength="120" placeholder="Nama sesuai identitas"></label>
+    <label>Nomor identitas<input id="identity" maxlength="64" placeholder="NIM / NIS / nomor anggota"></label>
+    <button id="submitBtn">Kirim absensi</button>
+  </div>
+  <div id="result" role="status" class="result" hidden></div>
+</section></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="js/config.js"></script><script src="js/scan.js"></script>
+</body></html>
